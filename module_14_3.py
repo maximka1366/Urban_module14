@@ -7,7 +7,7 @@ from aiogram.dispatcher import FSMContext
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton,InlineKeyboardButton, InlineKeyboardMarkup
 from aiogram.types import MediaGroup
 
-api = '8022634880:AAHPraLIb8p_TNfgJ5GHYTN1n6CdtWLB-WU'
+api = ''
 bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
@@ -43,8 +43,6 @@ async def send_confirm_message(call):
 
 
 
-
-# @dp.message_handler(text=['Calories', 'Калории'])
 @dp.message_handler(text='Рассчитать')
 async def set_age(message):
     await message.answer('Введите свой возраст:')
@@ -97,15 +95,13 @@ async def start(message):
     keyboard.insert(button_2)
     keyboard.add(button_3)
     await message.answer('Привет! Я бот помогающий твоему здоровью.', reply_markup=keyboard)
-#    print('Привет! Я бот помогающий твоему здоровью.')
-
 
 
 
 @dp.message_handler()
 async def all_message(message):
     await message.answer('Введите команду /start, чтобы начать общение.')
-#    print('Введите команду /start, чтобы начать общение.')
+
 
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
